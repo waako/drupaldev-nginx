@@ -141,3 +141,8 @@ puphpet::ini { 'custom':
 class { 'mysql::server':
   config_hash   => { 'root_password' => 'drupaldev' }
 }
+
+php::pear::module { 'drush':
+  repository  => 'pear.drush.org',
+  use_package => 'no',
+}

@@ -51,4 +51,4 @@ define mySites {
   }
 }
 
-
+mySites { $sites: }

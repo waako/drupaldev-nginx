@@ -4,9 +4,6 @@ $sites = [
     'd8'
 ]
 
-$path_translated = 'PATH_TRANSLATED $document_root$fastcgi_path_info'
-$script_filename = 'SCRIPT_FILENAME $document_root$fastcgi_script_name'
-
 # Magix
 define mySites {
   nginx::resource::vhost { '${name}.drupal.dev':

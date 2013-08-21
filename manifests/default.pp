@@ -78,6 +78,7 @@ php::module {
     'php5-curl',
     'php5-intl',
     'php5-mcrypt',
+    'php5-gd',
   ]:
   service => 'php5-fpm',
 }

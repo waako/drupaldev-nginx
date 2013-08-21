@@ -13,3 +13,9 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8 (sorry no 5). Built 
 2. `mkdir sites`
 3. `cp manifests/example.pp manifests/devsites.pp`
 4. `vagrant up`
+
+#VM Info
+* Default port 33.33.33.10
+* Sites built as *.drupal.dev (use dnsmasq)
+* Ubuntu 12.04 - Will update to 13.04 once stable
+* Port 3306 mapped to host for SQL

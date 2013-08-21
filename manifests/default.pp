@@ -19,7 +19,8 @@ package { [
     'curl',
     'git-core',
     'wget',
-    'zsh'
+    'zsh',
+    'htop'
   ]:
   ensure  => 'installed',
 }

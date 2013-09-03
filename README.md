@@ -1,6 +1,6 @@
 #DrupalDev nginx
 
-Modified vagrant config from puphpet. Supports Drupal 6/7/8 (sorry no 5). Built in Drush and Composer.
+Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and Composer.
 
 #Mods
 1. Removed xhprof it doesn't work in this config

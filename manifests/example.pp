@@ -1,6 +1,6 @@
 nginx::resource::vhost { 'example.drupal.dev':
   ensure       => present,
-  server_drupal  => [
+  server_name  => [
     'example.drupal.dev'  ],
   listen_port  => 80,
   index_files  => [

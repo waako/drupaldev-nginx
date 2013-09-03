@@ -115,3 +115,7 @@ php::pear::module { 'drush':
   repository  => 'pear.drush.org',
   use_package => 'no',
 }
+
+php::pear::module { 'Console_Table':
+  use_package => 'no',
+}

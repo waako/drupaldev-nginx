@@ -1,3 +1,6 @@
+$path_translated = 'PATH_TRANSLATED $document_root$fastcgi_path_info'
+$script_filename = 'SCRIPT_FILENAME $document_root$fastcgi_script_name'
+
 nginx::resource::vhost { 'example.drupal.dev':
   ensure       => present,
   server_name  => [
@@ -22,8 +25,8 @@ nginx::resource::location { 'example.drupal.dev-php':
   location_cfg_append => {
     'fastcgi_split_path_info' => '^(.+\.php)(/.+)$',
     'fastcgi_param'           => 'PATH_INFO $fastcgi_path_info',
-    'fastcgi_param '          => $path_translated,
-    'fastcgi_param  '         => $script_filename,
+    'fastcgi_param '           => $path_translated,
+    'fastcgi_param  '           => $script_filename,
     'fastcgi_pass'            => '127.0.0.1:9000',
     'fastcgi_index'           => 'index.php',
     'include'                 => 'fastcgi_params'

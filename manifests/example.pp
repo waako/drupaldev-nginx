@@ -11,7 +11,7 @@ nginx::resource::vhost { 'example.drupal.dev':
     'index.htm',
     'index.php'
   ],
-  www_root     => '/var/www/example.drupal.dev',
+  www_root     => '/var/www/example.drupal.dev/www',
   try_files    => ['$uri', '$uri/', '/index.php?$args'],
 }
 
@@ -21,7 +21,7 @@ nginx::resource::location { 'example.drupal.dev-php':
   location            => '~ \.php$',
   proxy               => undef,
   try_files           => ['$uri', '$uri/', '/index.php?$args'],
-  www_root            => '/var/www/example.drupal.dev',
+  www_root            => '/var/www/example.drupal.dev/www',
   location_cfg_append => {
     'fastcgi_split_path_info' => '^(.+\.php)(/.+)$',
     'fastcgi_param'           => 'PATH_INFO $fastcgi_path_info',
@@ -41,6 +41,6 @@ mysql::db { example:
   grant    => ['all'],
 }
 
-file { "/var/www/example.drupal.dev":
+file { "/var/www/example.drupal.dev/www":
   ensure => "directory",
 }

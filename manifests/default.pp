@@ -21,6 +21,7 @@ package { [
     'wget',
     'zsh',
     'unzip',
+    'rsync',
     'htop'
   ]:
   ensure  => 'installed',
@@ -107,7 +108,19 @@ puphpet::ini { 'custom':
 }
 
 class { 'mysql::server':
-  config_hash   => { 'root_password' => 'drupaldev' }
+  config_hash   => { 'root_password' => 'root' }
+}
+
+mysql::db { 'db_name':
+  grant    => [
+    'ALL'
+  ],
+  user     => 'db_user',
+  password => 'db_password',
+  host     => 'localhost',
+  sql      => '/var/www/db/import.sql',
+  charset  => 'utf8',
+  require  => Class['mysql::server'],
 }
 
 class { 'phpmyadmin':

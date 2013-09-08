@@ -20,6 +20,7 @@ package { [
     'git-core',
     'wget',
     'zsh',
+    'unzip',
     'htop'
   ]:
   ensure  => 'installed',
@@ -107,6 +108,40 @@ puphpet::ini { 'custom':
 
 class { 'mysql::server':
   config_hash   => { 'root_password' => 'drupaldev' }
+}
+
+class { 'phpmyadmin':
+  require => [Class['mysql::server'], Class['mysql::config'], Class['php']],
+}
+
+nginx::resource::vhost { 'phpmyadmin':
+  ensure      => present,
+  server_name => ['phpmyadmin'],
+  listen_port => 80,
+  index_files => ['index.php'],
+  www_root    => '/usr/share/phpmyadmin',
+  try_files   => ['$uri', '$uri/', '/index.php?$args'],
+  require     => Class['phpmyadmin'],
+}
+
+nginx::resource::location { "phpmyadmin-php":
+  ensure              => 'present',
+  vhost               => 'phpmyadmin',
+  location            => '~ \.php$',
+  proxy               => undef,
+  try_files           => ['$uri', '$uri/', '/index.php?$args'],
+  www_root            => '/usr/share/phpmyadmin',
+  location_cfg_append => {
+    'fastcgi_split_path_info' => '^(.+\.php)(/.+)$',
+    'fastcgi_param'           => 'PATH_INFO $fastcgi_path_info',
+    'fastcgi_param '          => 'PATH_TRANSLATED $document_root$fastcgi_path_info',
+    'fastcgi_param  '         => 'SCRIPT_FILENAME $document_root$fastcgi_script_name',
+    'fastcgi_pass'            => 'unix:/var/run/php5-fpm.sock',
+    'fastcgi_index'           => 'index.php',
+    'include'                 => 'fastcgi_params'
+  },
+  notify              => Class['nginx::service'],
+  require             => Nginx::Resource::Vhost['phpmyadmin'],
 }
 
 php::pear::module { 'drush':

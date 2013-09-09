@@ -5,7 +5,8 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and 
 #Mods
 1. Removed xhprof it doesn't work in this config
 2. Easier handling of vhosts and dbs (see example.pp)
-3. Drush
+3. Drush pre-installed
+4. Compass pre-installed
 
 #Usage
 

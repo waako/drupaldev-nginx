@@ -43,6 +43,7 @@ php::module {
     'php5-intl',
     'php5-mcrypt',
     'php5-gd',
+    'php-apc'
   ]:
   service => 'php5-fpm',
 }
@@ -119,6 +120,24 @@ php::pear::module { 'Console_Table':
 
 class { 'ruby':
   gems_version  => 'latest'
+}
+
+package { 'sass':
+  provider => 'gem',
+  ensure => installed,
+  require => Package[[rubygems]]
+}
+
+package { 'chunky_png':
+  provider => 'gem',
+  ensure => installed,
+  require => Package[[rubygems]]
+}
+
+package { 'fssm':
+  provider => 'gem',
+  ensure => installed,
+  require => Package[[rubygems]]
 }
 
 package { 'compass':

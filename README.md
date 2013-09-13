@@ -1,5 +1,7 @@
 #DrupalDev nginx
 
+[![Build Status](http://r2.ayil.co.uk:8080/buildStatus/icon?job=drupaldev-nginx)](http://r2.ayil.co.uk:8080/job/drupaldev-nginx/)
+
 Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and Composer.
 
 #Mods

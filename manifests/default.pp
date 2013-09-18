@@ -1,4 +1,4 @@
-import 'devsites.pp'
+import 'projects.pp'
 
 group { 'puppet': ensure => present }
 Exec { path => [ '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/' ] }

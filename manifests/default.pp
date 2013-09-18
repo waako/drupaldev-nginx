@@ -2,7 +2,7 @@ import 'devsites.pp'
 
 group { 'puppet': ensure => present }
 Exec { path => [ '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/' ] }
-#File { owner => 0, group => 0, mode => 0644 }
+File { owner => 0, group => 0, mode => 0644 }
 
 class {'apt':
   always_apt_update => true,
@@ -45,7 +45,8 @@ php::module {
     'php5-intl',
     'php5-mcrypt',
     'php5-gd',
-    'php-apc'
+    'php-apc',
+    'php5-memcached',
   ]:
   service => 'php5-fpm',
 }
@@ -97,6 +98,15 @@ puphpet::ini { 'php':
   require => Class['php'],
 }
 
+puphpet::ini { 'php':
+  value   => [
+    'memory_limit = 256M'
+  ],
+  ini     => '/etc/php5/conf.d/zzz_php.ini',
+  notify  => Service['php5-fpm'],
+  require => Class['php'],
+}
+
 puphpet::ini { 'custom':
   value   => [
     'display_errors = On',
@@ -123,40 +133,6 @@ mysql::db { 'db_name':
   require  => Class['mysql::server'],
 }
 
-class { 'phpmyadmin':
-  require => [Class['mysql::server'], Class['mysql::config'], Class['php']],
-}
-
-nginx::resource::vhost { 'phpmyadmin':
-  ensure      => present,
-  server_name => ['phpmyadmin'],
-  listen_port => 80,
-  index_files => ['index.php'],
-  www_root    => '/usr/share/phpmyadmin',
-  try_files   => ['$uri', '$uri/', '/index.php?$args'],
-  require     => Class['phpmyadmin'],
-}
-
-nginx::resource::location { "phpmyadmin-php":
-  ensure              => 'present',
-  vhost               => 'phpmyadmin',
-  location            => '~ \.php$',
-  proxy               => undef,
-  try_files           => ['$uri', '$uri/', '/index.php?$args'],
-  www_root            => '/usr/share/phpmyadmin',
-  location_cfg_append => {
-    'fastcgi_split_path_info' => '^(.+\.php)(/.+)$',
-    'fastcgi_param'           => 'PATH_INFO $fastcgi_path_info',
-    'fastcgi_param '          => 'PATH_TRANSLATED $document_root$fastcgi_path_info',
-    'fastcgi_param  '         => 'SCRIPT_FILENAME $document_root$fastcgi_script_name',
-    'fastcgi_pass'            => 'unix:/var/run/php5-fpm.sock',
-    'fastcgi_index'           => 'index.php',
-    'include'                 => 'fastcgi_params'
-  },
-  notify              => Class['nginx::service'],
-  require             => Nginx::Resource::Vhost['phpmyadmin'],
-}
-
 php::pear::module { 'drush':
   repository  => 'pear.drush.org',
   use_package => 'no',
@@ -164,32 +140,4 @@ php::pear::module { 'drush':
 
 php::pear::module { 'Console_Table':
   use_package => 'no',
-}
-
-class { 'ruby':
-  gems_version  => 'latest'
-}
-
-package { 'sass':
-  provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
-}
-
-package { 'chunky_png':
-  provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
-}
-
-package { 'fssm':
-  provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
-}
-
-package { 'compass':
-  provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
 }

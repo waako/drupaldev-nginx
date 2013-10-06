@@ -16,7 +16,8 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and 
 2. `cd drupaldev-nginx`
 3. `mkdir sites`
 4. `cp manifests/example.pp manifests/devsites.pp`
-5. `vagrant up`
+5. amend manifests/devsites.php as required
+6. `vagrant up`
 
 #VM Info
 * Default port 33.33.33.10

@@ -20,7 +20,8 @@ package { [
     'git-core',
     'wget',
     'zsh',
-    'htop'
+    'htop',
+    'memcached'
   ]:
   ensure  => 'installed',
 }
@@ -43,7 +44,8 @@ php::module {
     'php5-intl',
     'php5-mcrypt',
     'php5-gd',
-    'php-apc'
+    'php-apc',
+    'php5-memcached'
   ]:
   service => 'php5-fpm',
 }

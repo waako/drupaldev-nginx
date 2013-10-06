@@ -98,15 +98,6 @@ puphpet::ini { 'php':
   require => Class['php'],
 }
 
-puphpet::ini { 'php':
-  value   => [
-    'memory_limit = 256M'
-  ],
-  ini     => '/etc/php5/conf.d/zzz_php.ini',
-  notify  => Service['php5-fpm'],
-  require => Class['php'],
-}
-
 puphpet::ini { 'custom':
   value   => [
     'display_errors = On',

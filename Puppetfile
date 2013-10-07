@@ -20,5 +20,5 @@ mod "xdebug",
 mod "puppi",
   :git => "git://github.com/example42/puppi"
 
-mod "puppi",
+mod "composer",
   :git => "git://github.com/puphpet/puppet-composer"

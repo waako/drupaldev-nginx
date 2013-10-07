@@ -1,3 +1,6 @@
 sites
 devsites.pp
 .vagrant
+.tmp/
+modules/
+.librarian

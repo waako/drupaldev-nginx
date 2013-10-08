@@ -4,11 +4,13 @@
 
 Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and Composer.
 
-#Mods
+#Tools
 1. Removed xhprof it doesn't work in this config
 2. Easier handling of vhosts and dbs (see example.pp)
-3. Drush pre-installed
-4. Compass pre-installed
+3. Drush
+4. Compass
+5. Omega 4 Gems included as standard
+6. APC / Memcache
 
 #Usage
 
@@ -20,5 +22,4 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and 
 #VM Info
 * Default port 33.33.33.10
 * Sites built as *.drupal.dev (use dnsmasq)
-* Ubuntu 12.04 - Will update to 13.04 once stable
-* Port 3306 mapped to host for SQL
+* Ubuntu 12.04

@@ -1,12 +1,12 @@
 forge "http://forge.puppetlabs.com"
 
-mod "puppetlabs/apt"
-mod "puppetlabs/stdlib"
-mod "puppetlabs/vcsrepo"
-mod "puppetlabs/ruby"
-mod "puppetlabs/mysql"
+mod "puppetlabs/apt", "1.4.0"
+mod "puppetlabs/stdlib", "4.1.0"
+mod "puppetlabs/vcsrepo", "0.1.2"
+mod "puppetlabs/ruby", "0.1.0"
+mod "puppetlabs/mysql", "2.0.0"
 
-mod "jfryman/nginx"
+mod "jfryman/nginx", "0.0.5"
 
 mod "php",
   :git => "git://github.com/example42/puppet-php"

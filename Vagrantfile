@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
 
   nfs_setting = RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/
   config.vm.synced_folder "./sites", "/var/www", id: "vagrant-root" , :nfs => nfs_setting
-  config.vm.provision :shell, :inline => "sudo apt-get update"
+  config.vm.provision :shell, :inline => "sudo apt-get update && sudo apt-get install puppet -y"
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "manifests"

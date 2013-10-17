@@ -146,3 +146,27 @@ package { 'compass':
   ensure => installed,
   require => Package[[rubygems]]
 }
+
+package { 'compass-normalize':
+  provider => 'gem',
+  ensure => installed,
+  require => Package[[rubygems]]
+}
+
+package { 'compass-rgbapng':
+  provider => 'gem',
+  ensure => installed,
+  require => Package[[rubygems]]
+}
+
+package { 'toolkit':
+  provider => 'gem',
+  ensure => installed,
+  require => Package[[rubygems]]
+}
+
+package { 'susy':
+  provider => 'gem',
+  ensure => installed,
+  require => Package[[rubygems]]
+}

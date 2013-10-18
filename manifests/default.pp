@@ -21,7 +21,8 @@ package { [
     'wget',
     'zsh',
     'htop',
-    'memcached'
+    'memcached',
+    'libsqlite3-dev'
   ]:
   ensure  => 'installed',
 }
@@ -89,7 +90,8 @@ puphpet::ini { 'xdebug':
 
 puphpet::ini { 'php':
   value   => [
-    'date.timezone = "Europe/London"'
+    'date.timezone = "Europe/London"',
+    'sendmail_path = "/usr/bin/env /usr/local/bin/catchmail"'
   ],
   ini     => '/etc/php5/conf.d/zzz_php.ini',
   notify  => Service['php5-fpm'],
@@ -166,6 +168,12 @@ package { 'toolkit':
 }
 
 package { 'susy':
+  provider => 'gem',
+  ensure => installed,
+  require => Package[[rubygems]]
+}
+
+package { 'mailcatcher':
   provider => 'gem',
   ensure => installed,
   require => Package[[rubygems]]

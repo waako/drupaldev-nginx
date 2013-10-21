@@ -48,6 +48,7 @@ php::module {
     'php-apc',
     'php5-memcached'
   ]:
+  service => 'php5-fpm',
 }
 
 service { 'php5-fpm':
@@ -109,7 +110,7 @@ puphpet::ini { 'custom':
 }
 
 class { 'mysql::server':
-  root_password => 'drupaldev',
+  config_hash   => { 'root_password' => 'drupaldev' }
 }
 
 php::pear::module { 'drush':

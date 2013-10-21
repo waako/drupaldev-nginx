@@ -28,6 +28,7 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and 
 * Ubuntu 12.04
 
 #Dependencies
+* Xcode with Command Line Tools installed
 * Vagrant - http://www.vagrantup.com/
 * VirtualBox - https://www.virtualbox.org/
 * Librarian Puppet - http://librarian-puppet.com/

@@ -179,3 +179,7 @@ package { 'mailcatcher':
   ensure => installed,
   require => Package[[rubygems]]
 }
+
+service { "mailcatcher":
+  ensure => "running",
+}

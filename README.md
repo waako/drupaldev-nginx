@@ -12,7 +12,13 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and 
 5. Omega 4 Gems included as standard
 6. APC / Memcache
 
-#Usage
+#Dependencies
+* Xcode with Command Line Tools installed
+* Vagrant - http://www.vagrantup.com/
+* VirtualBox - https://www.virtualbox.org/
+* Librarian Puppet - http://librarian-puppet.com/
+
+#Install
 
 1. Clone Me
 2. `cd drupaldev-nginx`
@@ -27,8 +33,3 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and 
 * Sites built as *.drupal.dev (use dnsmasq)
 * Ubuntu 12.04
 
-#Dependencies
-* Xcode with Command Line Tools installed
-* Vagrant - http://www.vagrantup.com/
-* VirtualBox - https://www.virtualbox.org/
-* Librarian Puppet - http://librarian-puppet.com/

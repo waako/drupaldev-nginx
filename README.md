@@ -11,6 +11,7 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and 
 4. Compass
 5. Omega 4 Gems included as standard
 6. APC / Memcache
+7. Mailcatcher - run `mailcatcher --ip=0.0.0.0` / access example.drupal.dev:1080
 
 #Dependencies
 * Xcode with Command Line Tools installed

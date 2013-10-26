@@ -113,7 +113,7 @@ class { 'mysql::server':
   config_hash   => { 'root_password' => 'drupaldev' }
 }
 
-php::pear::module { 'drush':
+php::pear::module { 'drush-6.0.0RC4':
   repository  => 'pear.drush.org',
   use_package => 'no',
 }

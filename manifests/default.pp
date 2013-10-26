@@ -22,7 +22,6 @@ package { [
     'zsh',
     'htop',
     'memcached',
-    'libsqlite3-dev'
   ]:
   ensure  => 'installed',
 }
@@ -174,8 +173,4 @@ package { 'susy':
   require => Package[[rubygems]]
 }
 
-package { 'mailcatcher':
-  provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
-}
+class { 'mailcatcher': }

@@ -13,6 +13,8 @@ Class['::apt::update'] -> Package <|
 and title != 'software-properties-common'
 |>
 
+apt::ppa { "ppa:rip84/php5": }
+
 package { [
     'build-essential',
     'vim',

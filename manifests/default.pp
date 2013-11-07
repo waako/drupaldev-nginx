@@ -128,9 +128,7 @@ class { 'ruby':
   gems_version  => 'latest'
 }
 
-package {
-  ensure   => 'installed',
-  [
+package { [
     'susy',
     'toolkit',
     'compass-rgbapng',
@@ -141,6 +139,7 @@ package {
     'sass'
   ]:
   provider => 'gem',
+  ensure   => 'installed',
   require  => Package[[rubygems]]
 }
 

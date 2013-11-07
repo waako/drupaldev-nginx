@@ -128,51 +128,18 @@ class { 'ruby':
   gems_version  => 'latest'
 }
 
-package { 'sass':
+package { [
+    'susy',
+    'toolkit',
+    'compass-rgbapng',
+    'compass-normalize',
+    'compass',
+    'fssm',
+    'chunky_png',
+    'sass'
+  ]:
   provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
-}
-
-package { 'chunky_png':
-  provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
-}
-
-package { 'fssm':
-  provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
-}
-
-package { 'compass':
-  provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
-}
-
-package { 'compass-normalize':
-  provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
-}
-
-package { 'compass-rgbapng':
-  provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
-}
-
-package { 'toolkit':
-  provider => 'gem',
-  ensure => installed,
-  require => Package[[rubygems]]
-}
-
-package { 'susy':
-  provider => 'gem',
-  ensure => installed,
+  ensure  => 'installed',
   require => Package[[rubygems]]
 }
 

@@ -24,6 +24,7 @@ package { [
     'zsh',
     'htop',
     'memcached',
+    'unzip'
   ]:
   ensure  => 'installed',
 }

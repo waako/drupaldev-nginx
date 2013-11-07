@@ -13,7 +13,7 @@ Class['::apt::update'] -> Package <|
 and title != 'software-properties-common'
 |>
 
-apt::ppa { "ppa:rip84/php5": }
+apt::ppa { 'ppa:rip84/php5': }
 
 package { [
     'build-essential',
@@ -128,7 +128,9 @@ class { 'ruby':
   gems_version  => 'latest'
 }
 
-package { [
+package {
+  ensure   => 'installed',
+  [
     'susy',
     'toolkit',
     'compass-rgbapng',
@@ -139,8 +141,7 @@ package { [
     'sass'
   ]:
   provider => 'gem',
-  ensure  => 'installed',
-  require => Package[[rubygems]]
+  require  => Package[[rubygems]]
 }
 
 class { 'mailcatcher': }

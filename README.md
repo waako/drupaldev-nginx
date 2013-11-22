@@ -6,13 +6,13 @@ Dev - [![Build Status](http://r2.ayil.co.uk:8080/buildStatus/icon?job=drupaldev-
 Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and Composer.
 
 #Tools
-1. Removed xhprof it doesn't work in this config
 2. Easier handling of vhosts and dbs (see example.pp)
 3. Drush
 4. Compass
 5. Omega 4 Gems included as standard
 6. APC / Memcache
 7. Mailcatcher - Can be accessed by appending :1080 to any vagrant url
+8. XHProf
 
 #Dependencies
 * Xcode with Command Line Tools installed
@@ -33,3 +33,7 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and 
 * Sites built as *.drupal.dev (use dnsmasq)
 * Ubuntu 12.04
 
+#XHPROF Details
+* Visible at xhprof.drupal.dev
+* XHProf Directory - `/usr/share/php`
+* XHProf URL - `http://xhprof.drupal.dev`

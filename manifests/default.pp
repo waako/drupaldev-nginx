@@ -24,7 +24,8 @@ package { [
     'zsh',
     'htop',
     'memcached',
-    'unzip'
+    'unzip',
+    'graphviz'
   ]:
   ensure  => 'installed',
 }
@@ -144,3 +145,38 @@ package { [
 }
 
 class { 'mailcatcher': }
+
+class { 'xhprof': }
+
+nginx::resource::vhost { 'xhprof.drupal.dev':
+  ensure       => present,
+  server_name  => [
+    'xhprof.drupal.dev'  ],
+  listen_port  => 80,
+  index_files  => [
+    'index.html',
+    'index.htm',
+    'index.php'
+  ],
+  www_root     => '/usr/share/php/xhprof_html',
+  try_files    => ['$uri', '$uri/', '/index.php?$args'],
+}
+
+nginx::resource::location { 'xhprof.drupal.dev-php':
+  ensure              => 'present',
+  vhost               => 'xhprof.drupal.dev',
+  location            => '~ \.php$',
+  proxy               => undef,
+  try_files           => ['$uri', '$uri/', '/index.php?$args'],
+  www_root            => '/usr/share/php/xhprof_html',
+  location_cfg_append => {
+    'fastcgi_split_path_info' => '^(.+\.php)(/.+)$',
+    'fastcgi_param'           => 'PATH_INFO $fastcgi_path_info',
+    'fastcgi_param '           => $path_translated,
+    'fastcgi_param  '           => $script_filename,
+    'fastcgi_pass'            => '127.0.0.1:9000',
+    'fastcgi_index'           => 'index.php',
+    'include'                 => 'fastcgi_params'
+  },
+  notify              => Class['nginx::service'],
+}

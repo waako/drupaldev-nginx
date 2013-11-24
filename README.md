@@ -33,7 +33,7 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and 
 * Sites built as *.drupal.dev (use dnsmasq)
 * Ubuntu 12.04
 
-#XHPROF Details
+#XHProf Details
 * Visible at xhprof.drupal.dev
 * XHProf Directory - `/usr/share/php`
 * XHProf URL - `http://xhprof.drupal.dev`

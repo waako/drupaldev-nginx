@@ -126,7 +126,7 @@ php::pear::module { 'Console_Table':
 }
 
 class { 'ruby':
-  version       => '1.9.3'
+  version       => '1.9.3',
   gems_version  => 'latest'
 }
 

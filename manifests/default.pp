@@ -137,7 +137,8 @@ package { [
     'compass',
     'fssm',
     'chunky_png',
-    'sass'
+    'sass',
+    'listen'
   ]:
   provider => 'gem',
   ensure   => 'installed',

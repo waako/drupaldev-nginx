@@ -8,17 +8,26 @@ mod "puppetlabs/mysql", "2.0.0"
 
 mod "jfryman/nginx", "0.0.5"
 
-mod "php",
-  :git => "git://github.com/example42/puppet-php"
+mod "mailcatcher",
+  :git => "git://github.com/ricksteckles/puppet-mailcatcher"
 
-mod "puphpet",
-  :git => "git://github.com/puphpet/puppet-puphpet"
+mod "xhprof",
+  :git => "git://github.com/mikebell/puppet-xhprof"
 
-mod "xdebug",
-  :git => "git://github.com/puphpet/puphpet-xdebug"
+mod "xhprof",
+  :git => "git://github.com/puphpet/puphpet-xdebug.git"
 
-mod "puppi",
-  :git => "git://github.com/example42/puppi"
+#mod "php",
+#  :git => "git://github.com/example42/puppet-php"
 
-mod "composer",
-  :git => "git://github.com/puphpet/puppet-composer"
+#mod "puphpet",
+#  :git => "git://github.com/puphpet/puppet-puphpet"
+
+#mod "xdebug",
+#  :git => "git://github.com/puphpet/puphpet-xdebug"
+
+#mod "puppi",
+#  :git => "git://github.com/example42/puppi"
+
+#mod "composer",
+#  :git => "git://github.com/puphpet/puppet-composer"

@@ -126,20 +126,11 @@ php::pear::module { 'Console_Table':
 }
 
 class { 'ruby':
-  version       => '1.9.3',
   gems_version  => 'latest'
 }
 
 package { [
-    'susy',
-    'toolkit',
-    'compass-rgbapng',
-    'compass-normalize',
     'compass',
-    'fssm',
-    'chunky_png',
-    'sass',
-    'listen'
   ]:
   provider => 'gem',
   ensure   => 'installed',

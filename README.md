@@ -3,7 +3,7 @@
 Master - [![Build Status](http://r2.ayil.co.uk:8080/buildStatus/icon?job=drupaldev-nginx-master)](http://r2.ayil.co.uk:8080/job/drupaldev-nginx-master/)
 Dev - [![Build Status](http://r2.ayil.co.uk:8080/buildStatus/icon?job=drupaldev-nginx-dev)](http://r2.ayil.co.uk:8080/job/drupaldev-nginx-dev/)
 
-Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and Composer.
+Vagrant configuration for Drupal Development. Supports Drupal 6/7/8. Built in Drush and Composer.
 
 #Tools
 2. Easier handling of vhosts and dbs (see example.pp)

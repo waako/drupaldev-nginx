@@ -14,20 +14,18 @@ mod "mailcatcher",
 mod "xhprof",
   :git => "git://github.com/mikebell/puppet-xhprof"
 
-mod "xhprof",
-  :git => "git://github.com/puphpet/puphpet-xdebug.git"
+mod "xdebug",
+  :git => "git://github.com/puphpet/puphpet-xdebug.git",
+  :ref => "8c515e62d2fe8aea89c24a5ed7cabf41f5626a52"
 
-#mod "php",
-#  :git => "git://github.com/example42/puppet-php"
+mod "php",
+  :git => "git://github.com/example42/puppet-php",
+  :ref => "v2.0.17"
 
-#mod "puphpet",
-#  :git => "git://github.com/puphpet/puppet-puphpet"
+mod "puppi",
+  :git => "git://github.com/example42/puppi",
+  :ref => "v2.1.7"
 
-#mod "xdebug",
-#  :git => "git://github.com/puphpet/puphpet-xdebug"
-
-#mod "puppi",
-#  :git => "git://github.com/example42/puppi"
-
-#mod "composer",
-#  :git => "git://github.com/puphpet/puppet-composer"
+mod "composer",
+  :git => "git://github.com/puphpet/puppet-composer",
+  :ref => "1.0.0"

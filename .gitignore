@@ -4,3 +4,4 @@ devsites.pp
 .tmp/
 .librarian
 Puppetfile.lock
+modules

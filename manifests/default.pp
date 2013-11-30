@@ -51,7 +51,7 @@ php::module {
     'php-apc',
     'php5-memcached'
   ]:
-  service => 'php5-fpm',
+  notify  => Service["php5-fpm"]
 }
 
 service { 'php5-fpm':
@@ -78,42 +78,8 @@ class { 'composer':
   require => Package['php5-fpm', 'curl'],
 }
 
-puphpet::ini { 'xdebug':
-  value   => [
-    'xdebug.default_enable = 1',
-    'xdebug.remote_autostart = 0',
-    'xdebug.remote_connect_back = 1',
-    'xdebug.remote_enable = 1',
-    'xdebug.remote_handler = "dbgp"',
-    'xdebug.remote_port = 9000'
-  ],
-  ini     => '/etc/php5/conf.d/zzz_xdebug.ini',
-  notify  => Service['php5-fpm'],
-  require => Class['php'],
-}
-
-puphpet::ini { 'php':
-  value   => [
-    'date.timezone = "Europe/London"',
-    'sendmail_path = "/usr/bin/env /usr/local/bin/catchmail"'
-  ],
-  ini     => '/etc/php5/conf.d/zzz_php.ini',
-  notify  => Service['php5-fpm'],
-  require => Class['php'],
-}
-
-puphpet::ini { 'custom':
-  value   => [
-    'display_errors = On',
-    'error_reporting = -1'
-  ],
-  ini     => '/etc/php5/conf.d/zzz_custom.ini',
-  notify  => Service['php5-fpm'],
-  require => Class['php'],
-}
-
-class { 'mysql::server':
-  config_hash   => { 'root_password' => 'drupaldev' }
+class { '::mysql::server':
+  root_password => 'drupaldev'
 }
 
 php::pear::module { 'drush-6.0.0RC4':
@@ -172,4 +138,20 @@ nginx::resource::location { 'xhprof.drupal.dev-php':
     'include'                 => 'fastcgi_params'
   },
   notify              => Class['nginx::service'],
+}
+
+php::ini { 'php.ini':
+  value => [
+    'display_errors = On',
+    'error_reporting = -1',
+    'date.timezone = "Europe/London"',
+    'sendmail_path = "/usr/bin/env /usr/local/bin/catchmail"',
+    'xdebug.default_enable = 1',
+    'xdebug.remote_autostart = 0',
+    'xdebug.remote_connect_back = 1',
+    'xdebug.remote_enable = 1',
+    'xdebug.remote_handler = "dbgp"',
+    'xdebug.remote_port = 9000'
+  ],
+  require => Package["php5-cli"]
 }

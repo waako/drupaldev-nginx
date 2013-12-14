@@ -30,6 +30,6 @@ mod "composer",
   :git => "git://github.com/puphpet/puppet-composer",
   :ref => "1.0.0"
 
-mod "composer",
+mod "logstash",
   :git => "git://github.com/logstash/puppet-logstash",
   :ref => "0.3.4"

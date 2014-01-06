@@ -32,7 +32,7 @@ Vagrant configuration for Drupal Development. Supports Drupal 6/7/8. Built in Dr
 6. `vagrant up`
 
 #VM Info
-* Default port 33.33.33.10
+* Default IP 33.33.33.10
 * Sites built as *.drupal.dev (use dnsmasq)
 * Ubuntu 12.04
 

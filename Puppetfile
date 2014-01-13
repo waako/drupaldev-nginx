@@ -33,3 +33,7 @@ mod "composer",
 mod "logstash",
   :git => "git://github.com/logstash/puppet-logstash",
   :ref => "0.3.4"
+
+mod "concat",
+  :git => "git://github.com/puppetlabs/puppetlabs-concat",
+  :ref => "1.1.0-rc1"

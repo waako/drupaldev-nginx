@@ -3,6 +3,8 @@
 Master - [![Build Status](http://r2.ayil.co.uk:8080/buildStatus/icon?job=drupaldev-nginx-master)](http://r2.ayil.co.uk:8080/job/drupaldev-nginx-master/)
 Dev - [![Build Status](http://r2.ayil.co.uk:8080/buildStatus/icon?job=drupaldev-nginx-dev)](http://r2.ayil.co.uk:8080/job/drupaldev-nginx-dev/)
 
+[Support on Gittip](https://www.gittip.com/mikebell/)
+
 Vagrant configuration for Drupal Development. Supports Drupal 6/7/8. Built in Drush and Composer.
 
 #Tools
@@ -30,7 +32,7 @@ Vagrant configuration for Drupal Development. Supports Drupal 6/7/8. Built in Dr
 6. `vagrant up`
 
 #VM Info
-* Default port 33.33.33.10
+* Default IP 33.33.33.10
 * Sites built as *.drupal.dev (use dnsmasq)
 * Ubuntu 12.04
 

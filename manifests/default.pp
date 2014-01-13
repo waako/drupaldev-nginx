@@ -82,7 +82,7 @@ class { '::mysql::server':
   root_password => 'drupaldev'
 }
 
-php::pear::module { 'drush-6.0.0RC4':
+php::pear::module { 'drush-6.2.0':
   repository  => 'pear.drush.org',
   use_package => 'no',
 }

@@ -5,3 +5,4 @@ devsites.pp
 .librarian
 Puppetfile.lock
 modules
+sites.yaml
